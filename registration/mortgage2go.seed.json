@@ -1,0 +1,181 @@
+{
+  "companyName": "Mayer Software Development",
+  "euid": "NLNHR.54090385",
+  "webUrl": "https://mortgage2go.com",
+  "serviceId": "EH_A530D4346A7ACD00",
+  "company": {
+    "city": "Amsterdam",
+    "countryCode": "nl",
+    "activities": [
+      "Softwareontwikkeling"
+    ]
+  },
+  "disclosurePolicy": {
+    "purposeStatement": {
+      "nl": "Hypotheekconsult voor zzp'ers voorbereiden",
+      "en": "Prepare a mortgage consult for self-employed professionals"
+    },
+    "retentionPolicy": {
+      "intentToRetain": false
+    },
+    "sharingPolicy": {
+      "intentToShare": false
+    },
+    "deletionPolicy": {
+      "deleteable": true
+    }
+  },
+  "requestedAttributes": {
+    "urn:eudi:lpid:nl:1": [
+      [
+        "euid"
+      ],
+      [
+        "legal_name"
+      ]
+    ],
+    "urn:eudi:eucc:nl:1": [
+      [
+        "legal_person_name"
+      ],
+      [
+        "euid"
+      ],
+      [
+        "legal_form_type"
+      ],
+      [
+        "registration_member_state"
+      ],
+      [
+        "registered_address",
+        "full_address"
+      ],
+      [
+        "registered_address",
+        "post_code"
+      ],
+      [
+        "registered_address",
+        "post_name"
+      ],
+      [
+        "registration_date"
+      ],
+      [
+        "legal_person_status"
+      ],
+      [
+        "legal_person_activity"
+      ],
+      [
+        "contact_point",
+        "contact_email"
+      ],
+      [
+        "contact_point",
+        "contact_page"
+      ]
+    ],
+    "urn:eudi:pox:nl:1": [
+      [
+        "legal_name"
+      ],
+      [
+        "euid"
+      ],
+      [
+        "representatives_person_name"
+      ],
+      [
+        "representatives_role"
+      ],
+      [
+        "representatives_authorisation_type"
+      ],
+      [
+        "mandate_scope"
+      ],
+      [
+        "mandate_description"
+      ],
+      [
+        "monetary_limit"
+      ]
+    ],
+    "urn:zzpgarantie:keurmerk:nl:1": [
+      [
+        "legal_name"
+      ],
+      [
+        "euid"
+      ],
+      [
+        "certainty_percentage"
+      ],
+      [
+        "verdict"
+      ],
+      [
+        "conclusion"
+      ],
+      [
+        "checks_total"
+      ],
+      [
+        "checks_completed"
+      ],
+      [
+        "checks_passed"
+      ],
+      [
+        "checks_failed"
+      ],
+      [
+        "checks_inconclusive"
+      ],
+      [
+        "attention_items"
+      ],
+      [
+        "assessed_at"
+      ],
+      [
+        "answers",
+        "situation"
+      ],
+      [
+        "answers",
+        "earning_as_entrepreneur"
+      ],
+      [
+        "answers",
+        "intends_to_continue"
+      ],
+      [
+        "answers",
+        "years_self_employed"
+      ],
+      [
+        "answers",
+        "hourly_rate"
+      ],
+      [
+        "answers",
+        "multiple_clients"
+      ],
+      [
+        "answers",
+        "over_70_percent_single_client"
+      ],
+      [
+        "answers",
+        "business_bank_account"
+      ],
+      [
+        "answers",
+        "business_insurance"
+      ]
+    ]
+  }
+}

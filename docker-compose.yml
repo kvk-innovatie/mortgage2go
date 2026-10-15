@@ -1,0 +1,41 @@
+services:
+  mortgage2go:
+    image: mortgage2go:latest
+    container_name: mortgage2go
+    restart: unless-stopped
+
+    # Only used when building here (`docker compose build`). deploy.sh builds
+    # locally and ships the image, and runs the remote side with --no-build.
+    build:
+      context: .
+      args:
+        # Vite inlines this at build time, so it lives here rather than under
+        # `environment` — changing it means rebuilding, not just restarting.
+        # The service id of the Mortgage2Go hypotheekconsult registration in
+        # NB Wallet Connect (registration/mortgage2go.seed.json).
+        VITE_SERVICE_ID: EH_A530D4346A7ACD00
+
+    ports:
+      # The container serves the SPA and /api from this one port.
+      - "7020:7020"
+
+    # The API key is the one value deliberately not written out below —
+    # server/.env.example says never to commit the real one. It comes from the
+    # same server/.env the app already uses when run from source; deploy.sh puts
+    # a copy at the same relative path on the server.
+    env_file:
+      - server/.env
+
+    # These take precedence over anything of the same name in server/.env.
+    environment:
+      PORT: 7020
+
+      # NB Wallet Connect, on its own subdomain.
+      WALLET_CONNECT_URL: https://connect.nbwallet.org
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:7020/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

@@ -1,0 +1,978 @@
+/* Palette taken from mortgage2go.com: Inter, a near-black navy for the hero and
+   footer, pill-shaped buttons, and the four colours of the logo symbol
+   (blue, yellow, pink, green) as accents. */
+:root {
+  --navy: #13132e;
+  --navy-deep: #10102c;
+  --ink: #1d1d1b;
+  --muted: #5c5c72;
+  --line: #e2e8f0;
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --soft: #eef1f7;
+
+  --green: #5bb88e;
+  --green-dark: #3f9c73;
+  --blue: #4c7bbd;
+  --yellow: #fbc665;
+  --pink: #eb629c;
+
+  --radius: 20px;
+  --radius-sm: 12px;
+
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* --- header ------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.brand-tag {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+.tab {
+  white-space: nowrap;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tab:hover {
+  color: var(--ink);
+  background: var(--soft);
+}
+
+.tab.active {
+  color: #fff;
+  background: var(--navy);
+}
+
+/* --- hero --------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.75rem 2.5rem;
+  border-radius: 32px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.hero h1 {
+  margin: 0.35rem 0 0.9rem;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-lead {
+  margin: 0 0 1.25rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+  max-width: 34rem;
+}
+
+.hero-art {
+  width: 180px;
+  height: 180px;
+  opacity: 0.9;
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+}
+
+.eyebrow.light {
+  color: var(--yellow);
+}
+
+/* Checkmark lists, after the site's own bullet style. */
+.checks {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.checks li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.checks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.6 2.5L12 5.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 70% no-repeat;
+}
+
+.checks.light li {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* --- cards -------------------------------------------------------------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-top: 1.25rem;
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 1.05rem !important;
+}
+
+.lead {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.lead.small {
+  font-size: 0.875rem;
+  margin: 1rem 0 0;
+}
+
+.card a,
+.footer a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.card a:hover,
+.footer a:hover {
+  color: var(--navy);
+}
+
+/* Inline code only: the syntax highlighter renders its own <pre><code>. */
+.card :not(pre) > code,
+.lead code {
+  font-size: 0.85em;
+  background: var(--soft);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+.demo-note {
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+  background: #fff8e6;
+  border: 1px solid #f5dfa6;
+  border-radius: var(--radius-sm);
+  color: #6b5a28;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Outline pill on the dark hero, after the site's secondary button. */
+button.ghost {
+  height: 48px;
+  border-radius: 999px;
+  padding: 0 24px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+button.ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* The button is a web component; style it through its exposed parts. In the
+   dark hero it is a white pill like the site's own call to action. */
+nl-wallet-button::part(button) {
+  height: 48px;
+  border-radius: 999px;
+  padding: 0 26px;
+  background: #fff;
+  border-color: #fff;
+  color: var(--navy);
+}
+
+nl-wallet-button::part(button):hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+nl-wallet-button::part(button-span) {
+  font-weight: 600;
+  /* The span carries its own colour, so setting it on the button alone is not
+     enough — it has to be set on the text part too. */
+  color: var(--navy);
+}
+
+button.primary,
+button.secondary {
+  height: 44px;
+  border-radius: 999px;
+  padding: 0 1.4rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+button.primary {
+  background: var(--navy);
+  border: 1px solid var(--navy);
+  color: #fff;
+}
+
+button.primary:hover {
+  background: var(--navy-deep);
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+button.secondary:hover {
+  border-color: var(--navy);
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* --- requested attestations ----------------------------------------------- */
+
+.requested-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.9rem;
+}
+
+.requested-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+.requested-item strong {
+  font-size: 0.95rem;
+}
+
+.requested-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.requested-item code {
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: transparent;
+  padding: 0;
+  word-break: break-all;
+}
+
+.pill {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  color: var(--navy);
+  background: var(--yellow);
+}
+
+.requested-item:nth-child(2) .pill { background: #cfe0f6; }
+.requested-item:nth-child(3) .pill { background: #f9d2e2; }
+.requested-item:nth-child(4) .pill { background: #cdeadb; }
+
+/* --- steps -------------------------------------------------------------- */
+
+.steps {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.25rem;
+}
+
+.steps li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.steps strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.steps p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* --- consult ------------------------------------------------------------ */
+
+.consult-head {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.consult-head .lead {
+  margin-bottom: 0;
+  max-width: 36rem;
+}
+
+.score {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.score svg {
+  transform: rotate(-90deg);
+}
+
+.score-track {
+  fill: none;
+  stroke: var(--soft);
+  stroke-width: 10;
+}
+
+.score-arc {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s ease;
+}
+
+.score-warning .score-arc { stroke: var(--yellow); }
+.score-rejected .score-arc { stroke: var(--pink); }
+
+.score-value {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 1;
+}
+
+.score-value strong {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.score-value span {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.score-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.indicator {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+.indicator strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.indicator p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.indicator-mark {
+  flex-shrink: 0;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 0.2rem;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.indicator-ok .indicator-mark { background: var(--green); }
+.indicator-warn .indicator-mark { background: var(--yellow); }
+.indicator-bad .indicator-mark { background: var(--pink); }
+.indicator-neutral .indicator-mark { background: var(--blue); }
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.summary-grid .card {
+  margin-top: 0;
+}
+
+.source {
+  margin: -0.25rem 0 1rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.facts {
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+/* Label above value: the cards sit three abreast, too narrow for two columns. */
+.facts > div {
+  font-size: 0.875rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.facts > div:last-child {
+  border-bottom: 0;
+}
+
+.facts dt {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 0.1rem;
+}
+
+.facts dd {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 500 !important;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--soft);
+}
+
+.badge-passed { background: #cdeadb; color: #1f5c40; }
+.badge-warning { background: #fdebc4; color: #6b4d0f; }
+.badge-rejected { background: #f9d2e2; color: #7a1f46; }
+
+.attention {
+  margin-top: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background: #fff8e6;
+  border: 1px solid #f5dfa6;
+  font-size: 0.85rem;
+}
+
+.attention ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.attention li + li {
+  margin-top: 0.2rem;
+}
+
+.attention-answer {
+  color: var(--muted);
+}
+
+.book {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.book h3 {
+  font-size: 1.35rem;
+}
+
+.book .lead {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.book .eyebrow {
+  color: var(--yellow);
+}
+
+.book .checks li {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.book button.primary {
+  background: #fff;
+  border-color: #fff;
+  color: var(--navy);
+}
+
+.book button.primary:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.book button.secondary {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+.book button.secondary:hover {
+  border-color: #fff;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.toggle-row h3 {
+  margin: 0;
+}
+
+.missing {
+  color: var(--muted);
+  font-weight: 400;
+  font-style: italic;
+  margin: 0;
+}
+
+.raw {
+  margin: 1.25rem 0 0;
+  padding: 1rem;
+  background: var(--navy-deep);
+  color: #d7dcf0;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* All disclosed data, per credential. */
+.attributes {
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.attributes > div {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+
+.attributes dt {
+  color: var(--muted);
+}
+
+.attributes dd {
+  margin: 0;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.credential + .credential {
+  margin-top: 1.5rem;
+}
+
+.credential-name {
+  margin: 1.25rem 0 0.25rem;
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.credential-name code {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* --- integration example ------------------------------------------------ */
+
+.integration-heading {
+  margin: 2rem 0 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 1.05rem;
+}
+
+.step {
+  margin-bottom: 1.25rem;
+}
+
+.step h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.step-note {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* The highlighter owns the block's own colours, padding and radius through its
+   inline `customStyle`; only the copy button's positioning belongs here. */
+.code-block {
+  position: relative;
+}
+
+.code-block .copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.25rem 0.55rem;
+  font: inherit;
+  font-size: 0.72rem;
+  color: #d7dcf0;
+  cursor: pointer;
+}
+
+.code-block .copy:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* --- account menu ------------------------------------------------------- */
+
+.account {
+  position: relative;
+}
+
+.account-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 16rem;
+  padding: 0.35rem 0.6rem 0.35rem 0.4rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.account-button:hover {
+  background: var(--soft);
+}
+
+.account-avatar {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.account-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-chevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.account-chevron.open {
+  transform: rotate(180deg);
+}
+
+.account-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.35rem);
+  z-index: 50;
+  width: 18rem;
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 24px rgba(19, 19, 46, 0.14);
+}
+
+.account-panel dl {
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.account-panel dt {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.account-panel dd {
+  margin: 0.1rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.account-logout {
+  width: 100%;
+}
+
+/* --- footer ------------------------------------------------------------- */
+
+.footer {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius);
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-brand img {
+  height: 20px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer a {
+  color: #fff;
+}
+
+.footer a:hover {
+  color: var(--yellow);
+}
+
+/* --- narrow screens ----------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .page {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .header {
+    gap: 0.75rem;
+  }
+
+  .tabs {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .hero-art {
+    display: none;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .attributes > div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}

@@ -1,0 +1,15 @@
+# Installed fresh in the image; copying the host's would drag in the wrong
+# platform's binaries.
+**/node_modules
+**/dist
+
+# Secrets stay out of the image. deploy.sh ships server/.env to the server
+# separately, where Compose reads it next to docker-compose.yml.
+**/.env
+
+.git
+.gitignore
+README.md
+docker-compose.yml
+deploy.sh
+registration
