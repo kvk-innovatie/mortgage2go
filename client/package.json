@@ -9,11 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.7",
+    "nb-wallet-connect-button-react": "^2.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-syntax-highlighter": "^15.6.6",
-    "wallet-connect-button-react": "^1.1.37"
+    "react-syntax-highlighter": "^15.6.6"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",

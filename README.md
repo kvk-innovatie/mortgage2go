@@ -30,7 +30,7 @@ no wallet infrastructure of its own and talks to **NB Wallet Connect** on
 │  (Vite, 7021)  │          │  (7020)      │                    │ connect.nbwallet  │
 └────────────────┘          └──────────────┘                    └─────────┬─────────┘
         │                    holds the API key                            │
-        │ nl-wallet-button → universal link                               ▼
+        │ wallet button → universal link                                  ▼
         ▼                                                 verification_server (public)
    NB Wallet app ──────────────────────────────────────────▶ verification.connect.nbwallet.org
 ```
@@ -166,22 +166,25 @@ Frontend: `VITE_SERVICE_ID` (default `EH_A530D4346A7ACD00`).
 
 ## The button
 
-`client/` installs `wallet-connect-button-react` from npm, and uses it like this
+`client/` installs `nb-wallet-connect-button-react` from npm, and uses it like this
 ([`src/App.tsx`](client/src/App.tsx)):
 
 ```jsx
 <WalletConnectButton
   serviceId={SERVICE_ID}
-  nbwallet
   label="Deel gegevens met je NB Wallet"
   lang="nl"
   onSuccess={handleSuccess}
 />
 ```
 
-`nbwallet` points it at this stack: `https://connect.nbwallet.org` as the host
-and the `https://nbwallet.org/deeplink/` universal link, speaking the service-id
-form of the API.
+The package is NB Wallet's own build of the button (version 2.0 onwards), so it
+already points at this stack: `https://connect.nbwallet.org` as the host, the
+`https://nbwallet.org/deeplink/` universal link, and the service-id form of the
+API (`service_id`, `/api/service/...`). The former `nbwallet` prop, which used
+to select all that on the generic `wallet-connect-button-react`, is no longer
+needed. The button is plain React markup: style it through the `.wcb-button`
+and `.wcb-button__label` classes, or the `className` / `classes` props.
 
 **No `apiKey` prop**, which is the other half of the setup. Without it the
 component requests `/api/create-session` and `/api/disclosed-attributes`

@@ -22,7 +22,7 @@ export default defineConfig({
     // code blocks render as `[object Object],[object Object],…` right after an
     // `npm install`, and why a couple of refreshes clear it.
     include: [
-      "wallet-connect-button-react",
+      "nb-wallet-connect-button-react",
       "react-syntax-highlighter",
       // Deep entries: plain data modules, but they only exist as subpaths.
       "react-syntax-highlighter/dist/esm/styles/prism",

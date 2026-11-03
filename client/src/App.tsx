@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import WalletConnectButton from "wallet-connect-button-react";
+import { WalletConnectButton, type DisclosedAttributesResponse } from "nb-wallet-connect-button-react";
 
 import { AccountMenu } from "./AccountMenu";
 import { Consult } from "./Consult";
@@ -59,7 +59,7 @@ export default function App() {
   const [path, navigate] = useRoute();
 
   // Identity-stable so the button's effect doesn't re-run on every render.
-  const handleSuccess = useCallback((response: Record<string, unknown> | undefined) => {
+  const handleSuccess = useCallback((response: DisclosedAttributesResponse | undefined) => {
     setIsExample(false);
     setDisclosed((response ?? {}) as DisclosedResponse);
     window.scrollTo({ top: 0 });
@@ -133,7 +133,7 @@ export default function App() {
             <h2>Voor ontwikkelaars</h2>
             <p className="lead">
               Deze demo is een gewone <em>relying party</em> van het nb-wallet-ecosysteem: een React-pagina met de{" "}
-              <code>wallet-connect-button-react</code>-knop en een backend van één handler die de API-sleutel van
+              <code>nb-wallet-connect-button-react</code>-knop en een backend van één handler die de API-sleutel van
               NB Wallet Connect toevoegt. De vier attestaties worden in één disclosure-sessie opgevraagd; de wallet laat
               de zzp'er zien wat Mortgage2Go vraagt en waarom.
             </p>
@@ -200,7 +200,6 @@ export default function App() {
               <div className="button-row">
                 <WalletConnectButton
                   serviceId={SERVICE_ID}
-                  nbwallet
                   label="Deel gegevens met je NB Wallet"
                   lang="nl"
                   onSuccess={handleSuccess}

@@ -282,9 +282,9 @@ button.ghost:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* The button is a web component; style it through its exposed parts. In the
+/* The button is plain markup with stable class names; style those. In the
    dark hero it is a white pill like the site's own call to action. */
-nl-wallet-button::part(button) {
+.wcb-button {
   height: 48px;
   border-radius: 999px;
   padding: 0 26px;
@@ -293,15 +293,13 @@ nl-wallet-button::part(button) {
   color: var(--navy);
 }
 
-nl-wallet-button::part(button):hover {
+.wcb-button:hover {
   background: var(--yellow);
   border-color: var(--yellow);
 }
 
-nl-wallet-button::part(button-span) {
+.wcb-button__label {
   font-weight: 600;
-  /* The span carries its own colour, so setting it on the button alone is not
-     enough — it has to be set on the text part too. */
   color: var(--navy);
 }
 

@@ -8,9 +8,9 @@ import { CodeBlock } from "./CodeBlock";
  * the key attached server-side.
  */
 
-const INSTALL = "npm install wallet-connect-button-react@latest";
+const INSTALL = "npm install nb-wallet-connect-button-react@latest";
 
-const REACT = `import WalletConnectButton from 'wallet-connect-button-react';
+const REACT = `import { WalletConnectButton } from 'nb-wallet-connect-button-react';
 import { useState } from 'react';
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
   return (
     <WalletConnectButton
       serviceId="EH_A530D4346A7ACD00"
-      nbwallet
       label="Deel gegevens met je NB Wallet"
       lang="nl"
       onSuccess={(attrs) => {
@@ -42,13 +41,13 @@ function App() {
 export default App;`;
 
 const STYLING = `/* Add to your CSS file */
-nl-wallet-button::part(button) {
+.wcb-button {
   border-radius: 999px;
   padding: 0 24px;
   height: 44px;
 }
 
-nl-wallet-button::part(button-span) {
+.wcb-button__label {
   font-weight: 600;
 }`;
 
